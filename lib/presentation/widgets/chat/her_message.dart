@@ -1,4 +1,4 @@
-import 'dart:ffi';
+ 
 
 import 'package:flutter/material.dart';
 
@@ -30,6 +30,7 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+   
   const _ImageBubble({
     super.key,
   });
