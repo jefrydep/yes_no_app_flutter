@@ -27,10 +27,7 @@ class ChatScreen extends StatelessWidget {
 }
 
 class _ChatView extends StatelessWidget {
-  const _ChatView({
-    super.key,
-  });
-
+  
   @override
   Widget build(BuildContext context) {
     final chatProvider = context.watch<ChatProvider>();
@@ -48,7 +45,7 @@ class _ChatView extends StatelessWidget {
                 // return(index % 2 == 0)
                 final message = chatProvider.menssages[index];
                 return(message.fromWho == FromWho.hers)
-                ?   HerMessageBubble()
+                ?   HerMessageBubble(message:message,)
                 :   MyMessageBubble(message: message);
                 
                 },)),

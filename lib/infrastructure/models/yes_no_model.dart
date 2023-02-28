@@ -2,7 +2,9 @@
 //
 //     final yesNoModel = yesNoModelFromJson(jsonString);
 
-import 'dart:convert';
+ 
+
+import 'package:yes_or_no_app/domain/entities/message.dart';
 
 class YesNoModel {
     YesNoModel({
@@ -15,10 +17,8 @@ class YesNoModel {
     bool forced;
     String image;
 
-    factory YesNoModel.fromRawJson(String str) => YesNoModel.fromJson(json.decode(str));
-
-    String toRawJson() => json.encode(toJson());
-
+     
+ 
     factory YesNoModel.fromJson(Map<String, dynamic> json) => YesNoModel(
         answer: json["answer"],
         forced: json["forced"],
@@ -30,4 +30,22 @@ class YesNoModel {
         "forced": forced,
         "image": image,
     };
+
+    Message toMessageEntity()=> Message(text: answer == 'Yes'?'Si':'No', fromWho: FromWho.hers,imageUrl: image);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+ 
+   

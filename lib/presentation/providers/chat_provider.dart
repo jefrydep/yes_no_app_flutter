@@ -16,6 +16,9 @@ class ChatProvider extends ChangeNotifier{
     if(text.isEmpty)return;
    final newMessage = Message(text: text, fromWho: FromWho.me);
    menssages.add(newMessage);
+   if(text.endsWith('?')){
+     herReplay();
+   }
    moveScrolltoBotton();
 
    notifyListeners(); 
@@ -23,6 +26,8 @@ class ChatProvider extends ChangeNotifier{
 
   Future<void> herReplay ()async{
     final herMessage = await  getYesNoAnswer.getAnswer();
+    menssages.add(herMessage);
+    moveScrolltoBotton();
     
       }
   Future<void> moveScrolltoBotton()async{
